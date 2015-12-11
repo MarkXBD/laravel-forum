@@ -13,6 +13,12 @@ trait HasSlug
      */
     public function getSlugAttribute()
     {
-        return Str::slug($this->title);
+        $slug = Str::slug($this->title);
+        
+        if (empty($slug)) {
+            return 0;
+        }
+        
+        return $slug;
     }
 }
